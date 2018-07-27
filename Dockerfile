@@ -8,4 +8,5 @@ RUN apt update && \
   rm -rf /var/lib/apt/lists/* && \
   ln -fs /etc/config/hdfs-site.xml /etc/hadoop/conf/hdfs-site.xml && \
   ln -fs /etc/config/core-site.xml /etc/hadoop/conf/core-site.xml && \
-  ln -fs /etc/config/krb5.conf /etc/krb5.conf
+  ln -fs /etc/config/krb5.conf /etc/krb5.conf && \
+  for i in $(seq 2000 3000); do groupadd -g $i $i; useradd -g $i -m -s /bin/bash -u $i $i; done
